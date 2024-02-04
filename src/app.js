@@ -8,7 +8,8 @@ async function init() {
   const userSection = document.querySelector('#user');
   const loginBtn = document.querySelector('#login');
   const logoutBtn = document.querySelector('#logout');
-  const PostBtn = document.querySelector('#post');
+  const postBtn = document.querySelector('#post');
+  const postSec = document.querySelector('#postSec');
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -27,12 +28,13 @@ async function init() {
   if (!user) {
     // Disable the Logout button
     logoutBtn.disabled = true;
+    postSec.hidden=true;
     return;
   }
   // Do an authenticated request to the fragments API server and log the result
   const userFragments = await getUserFragments(user);
 
-  PostBtn.onclick=()=>{
+  postBtn.onclick=()=>{
     let data= document.querySelector(`#data`).value;
     let type="text/plain";
     postFragments(user,data,type)

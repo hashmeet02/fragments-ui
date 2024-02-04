@@ -1,5 +1,7 @@
 // src/api.js
 
+require('dotenv').config();
+
 // fragments microservice API to use, defaults to localhost:8080 if not set in env
 const apiUrl = process.env.API_URL || 'http://localhost:8080';
 
