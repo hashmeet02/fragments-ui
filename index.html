@@ -14,7 +14,16 @@
     <section hidden id="user">
       <h2>Hello <span class="username"></span>!</h2>
     </section>
+    <hr>
     <section id="postSec">
+      <label>Choose fragment type:</label>
+        <select name="types" id="types" required>
+          <option value="text/plain">text/plain</option>
+          <option value="text/html">text/html</option>
+          <option value="text/markdown">text/markdown</option>
+          <option value="application/json">application/json</option>
+        </select>
+        <hr/>
       <textarea type="text" id="data"></textarea>
       <button type="submit" id="post"> POST </button>
     </section>
