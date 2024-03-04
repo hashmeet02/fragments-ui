@@ -1,5 +1,8 @@
 .parcel-cache/
-.vscode/
-dist/
 node_modules/
 .prettierrc
+.prettierignore
+.git/
+.gitignore
+dist/
+*.md
