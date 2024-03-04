@@ -1,6 +1,6 @@
 # Build the fragments-ui web app and serve it via parcel
 
-FROM node:18.12.0-bullseye
+FROM node:20.10.0-bullseye
 
 LABEL maintainer="Hashmeet Singh Saini <hsaini28@myseneca.ca>" \
         description="fragments-ui web app for testing"
@@ -24,5 +24,6 @@ RUN npm run build
 
 #3. serve dist/ on port 1234
 CMD npm run serve
+
 
 EXPOSE 1234
