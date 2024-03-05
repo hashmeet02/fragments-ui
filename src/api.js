@@ -72,6 +72,7 @@ export async function getUserFragmentList(user) {
 
     const data = await res.json();
     console.log("Fragments list received:", data);
+    return data;
   } catch (err) {
     console.log('Unable to call GET /v1/fragment/?expand=1', { err });
   }

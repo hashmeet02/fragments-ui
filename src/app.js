@@ -1,7 +1,7 @@
 // src/app.js
 
 import { Auth, getUser } from './auth';
-import { getUserFragments,postFragments } from './api';
+import { getUserFragments,postFragments, getUserFragmentList } from './api';
 
 async function init() {
   // Get our UI elements
@@ -10,6 +10,9 @@ async function init() {
   const logoutBtn = document.querySelector('#logout');
   const postBtn = document.querySelector('#post');
   const postSec = document.querySelector('#postSec');
+  const getBtn = document.querySelector('#get');
+  const getListBtn = document.querySelector('#getList');
+  const displayData = document.querySelector('#displayData');
 
   // Wire up event handlers to deal with login and logout.
   loginBtn.onclick = () => {
@@ -31,20 +34,39 @@ async function init() {
     postSec.hidden=true;
     return;
   }
-  // Do an authenticated request to the fragments API server and log the result
-  const userFragments = await getUserFragments(user);
-  console.log(userFragments)
-  
+
+
+
+  // // Do an authenticated request to the fragments API server and log the result
+  // const userFragments = await getUserFragments(user);
+  // console.log(userFragments)
 
   postBtn.onclick=()=>{
     let data= document.querySelector(`#data`).value;
-    let type="text/plain";
+    let type=document.querySelector("#types").value;
     postFragments(user,data,type)
   }
 
+  //get the list of fragment ids for user
+  getBtn.onclick=async ()=>{
+    const data= await getUserFragments(user);
+    const formattedData = JSON.stringify(data, null, 2);
+    document.querySelector("#displayData").value=formattedData;
+    displayData.hidden=false;
+  }
+
+  //get the list of fragment metadata for user
+  getListBtn.onclick=async ()=>{
+    const data= await getUserFragmentList(user);
+    const formattedData = JSON.stringify(data, null, 2);
+    document.querySelector("#displayData").value=formattedData;
+    displayData.hidden=false;
+  }
 
   // Log the user info for debugging purposes
   console.log({ user });
+
+  getUserFragmentList(user);
 
   // Update the UI to welcome the user
   userSection.hidden = false;
