@@ -44,9 +44,9 @@ FROM nginx:1.25.4-alpine@sha256:6a2f8b28e45c4adea04ec207a251fd4a2df03ddc930f782a
 # Copying the built site to the directory that nginx expects for static sites
 COPY --from=build /app/dist /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 1234
 
-ENV PORT=80
+ENV PORT=1234
 
 HEALTHCHECK --interval=15s --timeout=30s --start-period=10s --retries=3 \
   CMD curl --fail http://localhost:${PORT}/ || exit 1
