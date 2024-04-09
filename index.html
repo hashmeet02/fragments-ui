@@ -16,6 +16,23 @@
     </section>
     <hr>
     <section id="postSec">
+      <h2>Fetch Fragments:</h2>
+      <button type="submit" id="get">Get Fragments List</button>
+      <button type="submit" id="getList">Get Fragments Metadata</button>
+      <textarea readonly hidden type="text" id="displayData"></textarea>
+      <br><br>
+
+      <hr>
+      <h2>Find Fragment</h2>
+      <input type="text" id="id" placeholder="Fragment's ID">
+      <br><br>
+      <Button type="submit" id="getData">Fetch Data</Button>
+      <Button type="submit" id="getInfo">Fetch Information</Button>
+      <Button type="submit" id="delete">Delete Fragment</Button>
+      <br><br>
+
+      <hr>
+      <h2>Post Fragment</h2>
       <label>Choose fragment type:</label>
         <select name="types" id="types" required>
           <option value="text/plain">text/plain</option>
@@ -23,14 +40,25 @@
           <option value="text/markdown">text/markdown</option>
           <option value="application/json">application/json</option>
         </select>
-        <hr/>
-      <textarea type="text" id="data"></textarea>
-      <button type="submit" id="post"> POST </button>
-      <h2>Fetch Fragments:</h2>
-      <button type="submit" id="get">Get Fragments Data</button>
-      <button type="submit" id="getList">Get Fragments Metadata</button>
       <br><br>
-      <textarea readonly hidden type="text" id="displayData"></textarea>
+      <label for="data">Fragment Data:</label>
+      <textarea type="text" id="data" placeholder="Enter Fragemnt data"></textarea>
+      <button type="submit" id="post"> POST </button>
+      <button type="submit" id="update"> UPDATE </button>
+    
+      <br>
+      <hr>
+        <h2>Post Image Fragment</h2>
+        <label for="data">Upload Image File:</label>
+        <input type="file" name="file" id="file"/>
+        <br>
+        <button type="submit" id="postImg"> POST </button>
+        <button type="submit" id="updateImg"> UPDATE </button>
+      <br><br>
+      <hr>
+      <h2 id="result">Fragment Data:</h2>
+        <div id="returnedData"></div>
+        <img id="image"/>
     </section>
   </body>
 </html>
